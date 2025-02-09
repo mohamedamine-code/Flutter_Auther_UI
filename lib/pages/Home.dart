@@ -1,107 +1,103 @@
-// ignore_for_file: prefer_const_constructors, sort_child_properties_last
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sized_box_for_whitespace
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class Home extends StatelessWidget {
-  const  Home({super.key});
+  const Home({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        
-      ),
-      backgroundColor: const Color.fromARGB(255, 1, 78, 2),
-      body: Center(
+    return SafeArea(
+        child: Scaffold(
+      body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
+            Align(
+              alignment: Alignment.topLeft,
+              child: Image.asset(
+                "assets/images/main_top.png",
+                fit: BoxFit.cover,
+                width: 150,
+              ),
+            ),
             Text(
-              "Welcom Home ! 😊",
+              "WELCOME TO ISIMG",
               style: TextStyle(
-                fontSize: 33,
+                fontSize: 22,
+                color: Colors.black,
               ),
             ),
             SizedBox(
-              height: 20,
+              height: 50,
             ),
-            Container(
-              width: 330,
-              padding: EdgeInsets.only(left: 10),
-              decoration: BoxDecoration(
-                  color: Colors.amberAccent,
-                  borderRadius: BorderRadius.circular(10)),
-              child: TextField(
-                keyboardType: TextInputType.emailAddress,
-                textInputAction: TextInputAction.next,
-                decoration: InputDecoration(
-                    border: InputBorder.none,
-                    hintText: "mohamedamine",
-                    hintStyle: TextStyle(
-                      fontSize: 14,
-                      color: const Color.fromARGB(255, 35, 30, 30),
-                    ),
-                    icon: Icon(Icons.email)),
+            Align(
+              child: SvgPicture.asset(
+                "assets/icons/chat.svg",
+                width: 350,
               ),
             ),
-            SizedBox(
-              height: 25,
-            ),
             Container(
-              width: 330,
-              padding: EdgeInsets.only(left: 10),
-              decoration: BoxDecoration(
-                  color: Colors.amberAccent,
-                  borderRadius: BorderRadius.circular(10)),
-              child: TextField(
-                obscureText: true,
-                decoration: InputDecoration(
-                  border: InputBorder.none,
-                  hintText: "Password",
-                  hintStyle: TextStyle(
-                    fontSize: 14,
-                    color: const Color.fromARGB(255, 35, 30, 30),
+              width: 400,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  SizedBox(
+                    height: 20,
                   ),
-                  icon: Icon(Icons.lock),
-                ),
+                  SizedBox(
+                    width: 250,
+                    height: 60,
+                    child: ElevatedButton(
+                      style: ButtonStyle(
+                        backgroundColor: WidgetStatePropertyAll(
+                            const Color.fromARGB(255, 199, 13, 232)),
+                      ),
+                      onPressed: () {},
+                      child: Text(
+                        "Sign Up",
+                        style: TextStyle(
+                          fontSize: 18,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  SizedBox(
+                    width: 250,
+                    height: 60,
+                    child: ElevatedButton(
+                      style: ButtonStyle(
+                        backgroundColor: WidgetStatePropertyAll(
+                            const Color.fromARGB(255, 199, 13, 232)),
+                      ),
+                      onPressed: () {},
+                      child: Text(
+                        "Login",
+                        style: TextStyle(
+                          fontSize: 18,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
-            SizedBox(
-              height: 30,
-            ),
-            SizedBox(
-              width: 330,
-              height: 50,
-              child: ElevatedButton(
-                onPressed: (){},
-                  child: Text(
-                "login",
-                style: TextStyle(
-                  fontSize: 27,
-                  color: Colors.black,
-                ),
-              )),
-            ),
-            SizedBox(
-              height: 30,
-            ),
-            SizedBox(
-              width: 330,
-              height: 50,
-              child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/singup');
-                  },
-                  child: Text(
-                    "Sing Up",
-                    style: TextStyle(
-                      fontSize: 23,
-                      color: Colors.black,
+            Align(
+              alignment: Alignment.bottomLeft,
+                    child: Image.asset(
+                      "assets/images/main_bottom.png",
                     ),
-                  )),
-            ),
+                  ),
           ],
         ),
       ),
-    );
+    ));
   }
 }

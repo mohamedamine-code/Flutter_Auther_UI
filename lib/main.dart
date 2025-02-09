@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:partie2_music/pages/Home.dart';
+import 'package:partie2_music/pages/login.dart';
 import 'package:partie2_music/pages/singup.dart';
 
 void main() {
@@ -12,14 +13,13 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
-
   Widget build(BuildContext context) {
     return MaterialApp(
       initialRoute: '/',
       routes: {
-        '/': (context) => const  Home(),
+        '/': (context) => const Home(),
         '/singup': (context) => const singup(),
-
+        '/login': (context) => const Login(),
       },
     );
   }
