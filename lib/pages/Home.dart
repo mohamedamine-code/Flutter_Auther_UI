@@ -15,20 +15,18 @@ class Home extends StatelessWidget {
         child: Column(
           // mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Align(
-              alignment: Alignment.topLeft,
-              child: Image.asset(
-                "assets/images/main_top.png",
-                fit: BoxFit.cover,
-                width: 150,
-              ),
-            ),
-            Text(
-              "WELCOME TO ISIMG",
-              style: TextStyle(
-                fontSize: 22,
-                color: Colors.black,
-              ),
+            Row(
+              children: [
+                Image.asset(
+                  "assets/images/main_top.png",
+                  width: 100,
+                ),
+                Text(
+                  "Welcome To ISIMG",
+                  style: TextStyle(
+                      fontSize: 25, fontFamily: 'font', color: Colors.black),
+                ),
+              ],
             ),
             SizedBox(
               height: 50,
@@ -36,7 +34,7 @@ class Home extends StatelessWidget {
             Align(
               child: SvgPicture.asset(
                 "assets/icons/chat.svg",
-                width: 350,
+                width: 300,
               ),
             ),
             Container(
@@ -48,16 +46,18 @@ class Home extends StatelessWidget {
                     height: 20,
                   ),
                   SizedBox(
-                    width: 250,
+                    width: 300,
                     height: 60,
                     child: ElevatedButton(
                       style: ButtonStyle(
                         backgroundColor: WidgetStatePropertyAll(
-                            const Color.fromARGB(255, 199, 13, 232)),
+                            const Color.fromARGB(255, 114, 2, 189)),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/singup');
+                      },
                       child: Text(
-                        "Sign Up",
+                        "Login",
                         style: TextStyle(
                           fontSize: 18,
                           color: Colors.black,
@@ -69,16 +69,18 @@ class Home extends StatelessWidget {
                     height: 20,
                   ),
                   SizedBox(
-                    width: 250,
+                    width: 300,
                     height: 60,
                     child: ElevatedButton(
                       style: ButtonStyle(
                         backgroundColor: WidgetStatePropertyAll(
-                            const Color.fromARGB(255, 199, 13, 232)),
+                            const Color.fromARGB(29, 114, 2, 189)),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/login');
+                      },
                       child: Text(
-                        "Login",
+                        "Sign Up",
                         style: TextStyle(
                           fontSize: 18,
                           color: Colors.black,
@@ -91,10 +93,11 @@ class Home extends StatelessWidget {
             ),
             Align(
               alignment: Alignment.bottomLeft,
-                    child: Image.asset(
-                      "assets/images/main_bottom.png",
-                    ),
-                  ),
+              child: Image.asset(
+                "assets/images/main_bottom.png",
+                width: 100,
+              ),
+            ),
           ],
         ),
       ),
