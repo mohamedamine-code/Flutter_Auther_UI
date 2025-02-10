@@ -12,24 +12,37 @@ class Login extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: SingleChildScrollView(
-            child: Column(
+        body: Column(
           children: [
             Row(
+              // mainAxisAlignment:
+              //     MainAxisAlignment.spaceBetween, // Espace entre image et texte
               children: [
                 Image.asset(
                   "assets/icons/signup_top.png",
-                  width: 150,
+                  width: 100,
                 ),
-                Text(
-                  "Sign Up",
-                  style: TextStyle(
-                      fontSize: 25, fontFamily: 'font', color: Colors.black),
+                Expanded(
+                  // Permet au texte de s'étendre et d'être centré
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center, // Centre horizontalement
+                    children: [
+                      Text(
+                        "Sign Up",
+                        style: TextStyle(
+                          fontSize: 25,
+                          fontFamily: 'font',
+                          color: Colors.black,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
             SvgPicture.asset(
               "assets/icons/signup.svg",
+              width: 255,
             ),
             Padding(
               padding: const EdgeInsets.all(30),
@@ -158,12 +171,12 @@ class Login extends StatelessWidget {
                           width: 27,
                         ),
                       ),
-                        ],
-                      ),
                     ],
                   ),
-                ),
-              Align(
+                ],
+              ),
+            ),
+            Align(
               alignment: Alignment.bottomRight,
               child: Image.asset(
                 "assets/images/login_bottom.png",
@@ -171,7 +184,7 @@ class Login extends StatelessWidget {
               ),
             ),
           ],
-        )),
+        ),
       ),
     );
   }
